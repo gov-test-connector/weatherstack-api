@@ -8,3 +8,9 @@ def test_historical_weather_content():
     result = get_historical("London", "2023-01-01")
     assert result["location"] == "London"
     assert result["date"] == "2023-01-01"
+
+def test_current_weather_returns_dict():
+    from src.weather import get_current
+    result = get_current("Paris")
+    assert isinstance(result, dict)
+    assert result["location"] == "Paris"
